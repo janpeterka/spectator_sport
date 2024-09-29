@@ -6,5 +6,9 @@ module SpectatorSport
     def analysis
       @analysis ||= SessionWindowAnalysis.new(self)
     end
+
+    def events_before(event)
+      events.where(id: ...event.id)
+    end
   end
 end

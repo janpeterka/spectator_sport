@@ -18,6 +18,12 @@ Tags:
     <em> <%= event.explanation.details.join(", ") %> </em><br>
     <em> at <%= event.created_at.to_fs(:datetime) %> </em>
 
+    <% if event.click_target %>
+      <br>
+      <%= SpectatorSport::Event::NODE_TYPES[event.click_target["type"]]%>
+      <%= event.click_target %> was clicked
+    <% end %>
+
     <details open>
       <summary> Complete data </summary>
       <%= event.event_data %>
